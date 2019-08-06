@@ -1,0 +1,11 @@
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.csprojAssemblyReference.cache
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.Form1.resources
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.Form2.resources
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.Properties.Resources.resources
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.GenerateResource.cache
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.CoreCompileInputs.cache
+C:\Users\enhao\source\repos\MonitoringCurve\bin\Debug\MonitoringCurve.exe.config
+C:\Users\enhao\source\repos\MonitoringCurve\bin\Debug\MonitoringCurve.exe
+C:\Users\enhao\source\repos\MonitoringCurve\bin\Debug\MonitoringCurve.pdb
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.exe
+C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.pdb
