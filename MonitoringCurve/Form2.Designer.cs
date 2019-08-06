@@ -58,6 +58,10 @@
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.sp_DataReceived);
+            // 
             // 串口设置
             // 
             this.串口设置.Controls.Add(this.btnOpenCom);
