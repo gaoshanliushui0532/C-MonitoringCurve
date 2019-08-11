@@ -52,7 +52,7 @@ namespace MonitoringCurve
             chart1.Series["Series1"].BorderWidth = 2;
             chart1.Series["Series2"].BorderWidth = 2;
             // 图示上的文字
-            chart1.Series["Series1"].LegendText = "动态温度点";
+            chart1.Series["Series1"].LegendText = "温度";
             chart1.Series["Series2"].LegendText = "风速";
             chart1.Series["Series3"].LegendText = "33";
 
@@ -144,7 +144,9 @@ namespace MonitoringCurve
                     Convert.ToDouble(dt.Rows[i]["YT44p"].ToString()));
             }
 
-          
+            textBox1.Text = dt.Rows[i]["YT44p"].ToString();
+            textBox2.Text = dt.Rows[i]["YTemp"].ToString();
+
             if (DateTime.Now.ToOADate() > endTime.ToOADate())
             {
                 endTime = endTime.AddSeconds(10);//延长X时间轴
@@ -158,6 +160,30 @@ namespace MonitoringCurve
                 //chartArea.AxisX.Enabled = true;
             }
 
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if(chart1.Series["Series2"].Enabled == true)
+                chart1.Series["Series2"].Enabled = false;
+            else
+                chart1.Series["Series2"].Enabled = true;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (chart1.Series["Series1"].Enabled == true)
+                chart1.Series["Series1"].Enabled = false;
+            else
+                chart1.Series["Series1"].Enabled = true;
+        }
+
+        private void ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled == true)
+                timer1.Enabled = false;
+            else
+                timer1.Enabled = true;
         }
     }
 }
