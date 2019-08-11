@@ -9,3 +9,14 @@ C:\Users\enhao\source\repos\MonitoringCurve\bin\Debug\MonitoringCurve.exe
 C:\Users\enhao\source\repos\MonitoringCurve\bin\Debug\MonitoringCurve.pdb
 C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.exe
 C:\Users\enhao\source\repos\MonitoringCurve\obj\Debug\MonitoringCurve.pdb
+E:\C#\C-MonitoringCurve\MonitoringCurve\bin\Debug\MonitoringCurve.exe.config
+E:\C#\C-MonitoringCurve\MonitoringCurve\bin\Debug\MonitoringCurve.exe
+E:\C#\C-MonitoringCurve\MonitoringCurve\bin\Debug\MonitoringCurve.pdb
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csprojAssemblyReference.cache
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.Form1.resources
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.Form2.resources
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.Properties.Resources.resources
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.GenerateResource.cache
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.CoreCompileInputs.cache
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.exe
+E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.pdb

@@ -17,7 +17,7 @@ namespace MonitoringCurve
         bool isOpen = false;
         bool isSetProperty = false;
         bool isHex = false;
-
+        public static Byte[] CommReceivedData = new Byte[15]; // 创建接收字节数组 
         public Form2()
         {
             InitializeComponent();
@@ -244,14 +244,16 @@ namespace MonitoringCurve
                 }
                 else
                 {
-                    Byte[] ReceivedData = new Byte[sp.BytesToRead]; // 创建接收字节数组 
+                    Byte[] ReceivedData = new Byte[sp.BytesToRead+1]; // 创建接收字节数组 
                     sp.Read(ReceivedData, 0, ReceivedData.Length); // 读取所接受字节的数据 
                     string RecvDataText = null;
                     for (int i = 0; i < ReceivedData.Length - 1; i++)
                     {
-                        RecvDataText += ("0x" + ReceivedData[i].ToString("X2") + "");
+                        RecvDataText += (ReceivedData[i].ToString("X2") + "");
+                        CommReceivedData[i] = ReceivedData[i];
                     }
                     lbxReceData.Text += RecvDataText;
+                    lbxReceData.Text += DateTime.Now.ToString("hh:mm:ss:ffff");
                 }
                 sp.DiscardInBuffer(); // 丢弃缓冲区里的数据 
             }));
