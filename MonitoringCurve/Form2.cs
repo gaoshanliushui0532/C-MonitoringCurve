@@ -198,7 +198,7 @@ namespace MonitoringCurve
                     cbxParity.Enabled = false;
                     cbxStopBit.Enabled = false;
                     rbnChar.Enabled = false;
-                    rbnHex.Enabled = false;
+                    rbnHex.Enabled = true;
                 }
                 catch (Exception)
                 {
@@ -221,7 +221,7 @@ namespace MonitoringCurve
                     cbxDataBit.Enabled = true;
                     cbxParity.Enabled = true;
                     cbxStopBit.Enabled = true;
-                    rbnChar.Enabled = true;
+                    rbnChar.Enabled = false;
                     rbnHex.Enabled = true;
                 }
                 catch (Exception)
@@ -233,7 +233,7 @@ namespace MonitoringCurve
         }
         private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            System.Threading.Thread.Sleep(80);//延时100ms等待串口接收 
+            System.Threading.Thread.Sleep(50);//延时100ms等待串口接收 
             //this.Invoke是跨线程访问方法
             this.Invoke((EventHandler)(delegate
             {
@@ -253,8 +253,11 @@ namespace MonitoringCurve
                     //RecvDataText = RecvDataText.Split(' ');
                     //   String [] sArray = RecvDataText.Split(new char[] { ' '});
 
-
-                    for (int i = 0; i < ReceivedData.Length - 1; i++)
+                    int DataLength;
+                    DataLength = ReceivedData.Length;
+                    if (DataLength > 14)
+                        DataLength = 14;
+                    for (int i = 0; i < DataLength - 1; i++)
                     {
                         //ReceivedData[i] = Convert.ToByte(sArray[i],16);
                         RecvDataText += ReceivedData[i].ToString("X2") + " ";  //("0x" + ReceivedData[i].ToString("X2") + ""); //.ToString("X2"

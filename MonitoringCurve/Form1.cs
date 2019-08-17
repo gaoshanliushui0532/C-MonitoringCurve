@@ -34,13 +34,38 @@ namespace MonitoringCurve
             // 设置曲线的样式
             chart1.Series["Series1"].ChartType = SeriesChartType.Line;//设置图表类型
             chart1.Series["Series2"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series3"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series4"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series5"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series6"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series7"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series8"].ChartType = SeriesChartType.Line;//设置图表类型
 
             chart1.Series["Series1"].IsValueShownAsLabel = true;//显示数据点的值
             chart1.Series["Series2"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series3"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series4"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series5"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series6"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series7"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series8"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series9"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series10"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series11"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series12"].IsValueShownAsLabel = true;//显示数据点的值
+            chart1.Series["Series13"].IsValueShownAsLabel = true;//显示数据点的值
             //使能线条
-            chart1.Series["Series3"].Enabled = false;
-            chart1.Series["Series4"].Enabled = false;
-            chart1.Series["Series5"].Enabled = false;
+            chart1.Series["Series3"].Enabled = true;
+            chart1.Series["Series4"].Enabled = true;
+            chart1.Series["Series5"].Enabled = true;
+            chart1.Series["Series6"].Enabled = true;
+            chart1.Series["Series7"].Enabled = true;
+            chart1.Series["Series8"].Enabled = true;
+            chart1.Series["Series9"].Enabled = true;
+            chart1.Series["Series10"].Enabled = true;
+            chart1.Series["Series11"].Enabled = true;
+            chart1.Series["Series12"].Enabled = true;
+            chart1.Series["Series13"].Enabled = true;
             // 线的颜色：红色
             chart1.Series["Series1"].Color = System.Drawing.Color.Red;
             chart1.Series["Series2"].Color = System.Drawing.Color.Blue;
