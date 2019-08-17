@@ -49,7 +49,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbxReceData = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lbxSendData = new System.Windows.Forms.ListBox();
+            this.tbxSendData = new System.Windows.Forms.TextBox();
             this.btnSentData = new System.Windows.Forms.Button();
             this.btnClearData = new System.Windows.Forms.Button();
             this.串口设置.SuspendLayout();
@@ -60,6 +60,7 @@
             // 
             // serialPort1
             // 
+            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.SerialPort1_ErrorReceived);
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.sp_DataReceived);
             // 
             // 串口设置
@@ -242,7 +243,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.lbxSendData);
+            this.groupBox4.Controls.Add(this.tbxSendData);
             this.groupBox4.Location = new System.Drawing.Point(274, 274);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(483, 149);
@@ -250,21 +251,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "数据发送";
             // 
-            // lbxSendData
+            // tbxSendData
             // 
-            this.lbxSendData.FormattingEnabled = true;
-            this.lbxSendData.ItemHeight = 15;
-            this.lbxSendData.Items.AddRange(new object[] {
-            "234254246546",
-            "565",
-            "5656"});
-            this.lbxSendData.Location = new System.Drawing.Point(6, 30);
-            this.lbxSendData.MultiColumn = true;
-            this.lbxSendData.Name = "lbxSendData";
-            this.lbxSendData.ScrollAlwaysVisible = true;
-            this.lbxSendData.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbxSendData.Size = new System.Drawing.Size(456, 109);
-            this.lbxSendData.TabIndex = 1;
+            this.tbxSendData.Location = new System.Drawing.Point(6, 15);
+            this.tbxSendData.Multiline = true;
+            this.tbxSendData.Name = "tbxSendData";
+            this.tbxSendData.Size = new System.Drawing.Size(471, 128);
+            this.tbxSendData.TabIndex = 0;
+            this.tbxSendData.Text = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
             // 
             // btnSentData
             // 
@@ -306,6 +300,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -334,6 +329,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnSentData;
         private System.Windows.Forms.Button btnClearData;
-        public System.Windows.Forms.ListBox lbxSendData;
+        private System.Windows.Forms.TextBox tbxSendData;
     }
 }

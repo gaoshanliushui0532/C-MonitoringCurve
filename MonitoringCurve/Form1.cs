@@ -23,7 +23,6 @@ namespace MonitoringCurve
         DateTime kd = DateTime.Parse("00:00:01");
         Random random = new Random();       //随机函数，产生Y轴数据
         DataTable dt = new DataTable(); //创建数据表，存储数据
-        int flag = 0;   //设置Timer控件是否生效
         int i = 0;      //显示数据表中的数据行数
           
         private void Form1_Load(object sender, EventArgs e)
@@ -78,7 +77,7 @@ namespace MonitoringCurve
             // chart1.ChartAreas["ChartArea1"].AxisY.Title = "气温";//Y轴标题
             //  chart1.ChartAreas["ChartArea1"].AxisY.TitleAlignment = StringAlignment.Far;//设置Y轴标题的名称所在位置位远
             chart1.ChartAreas["ChartArea1"].AxisY.Interval = 10;
-            chart1.ChartAreas["ChartArea1"].AxisY.Maximum = 100;
+            chart1.ChartAreas["ChartArea1"].AxisY.Maximum = 260;
             chart1.ChartAreas["ChartArea1"].AxisY.Minimum = 0;
             chart1.ChartAreas["ChartArea1"].AxisY.MajorTickMark.Enabled = false;//坐标轴上的刻度线，为false时少了小横杆线
             chart1.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
@@ -97,7 +96,7 @@ namespace MonitoringCurve
             int[] values = { 95, 30, 20, 23, 60, 87, 42, 77, 92, 51, 29, 11, 11, 87 };
 
             // 在chart中显示数据
-            int x = 0;
+           //int x = 0;
             //foreach (int v in values)
             {
 
@@ -131,8 +130,8 @@ namespace MonitoringCurve
         {
             DataRow dr = dt.NewRow();
             dr["XTime"] = DateTime.Now.ToString("hh:mm:ss:ffff");
-            dr["YTemp"] = random.Next(0, 100);
-            dr["YT44p"] = random.Next(0, 90);
+            dr["YTemp"] = Form2.CommReceivedData[0];// random.Next(0, 100);
+            dr["YT44p"] = Form2.CommReceivedData[1]; // random.Next(0, 90);
             dt.Rows.Add(dr);
 
             if (dt.Rows.Count > 1)
@@ -183,7 +182,10 @@ namespace MonitoringCurve
             if (timer1.Enabled == true)
                 timer1.Enabled = false;
             else
+            {
+                //BtnOpenCom_Click();
                 timer1.Enabled = true;
+            }
         }
     }
 }

@@ -20,3 +20,14 @@ E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.Generat
 E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.CoreCompileInputs.cache
 E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.exe
 E:\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.pdb
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\bin\Debug\MonitoringCurve.exe.config
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\bin\Debug\MonitoringCurve.exe
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\bin\Debug\MonitoringCurve.pdb
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csprojAssemblyReference.cache
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.Form1.resources
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.Form2.resources
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.Properties.Resources.resources
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.GenerateResource.cache
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.csproj.CoreCompileInputs.cache
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.exe
+E:\12-VisualStudio\C#\C-MonitoringCurve\MonitoringCurve\obj\Debug\MonitoringCurve.pdb

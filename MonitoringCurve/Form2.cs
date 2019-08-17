@@ -17,7 +17,7 @@ namespace MonitoringCurve
         bool isOpen = false;
         bool isSetProperty = false;
         bool isHex = false;
-        public static Byte[] CommReceivedData = new Byte[15]; // 创建接收字节数组 
+        public static Byte[] CommReceivedData = new Byte[100]; // 创建接收字节数组 
         public Form2()
         {
             InitializeComponent();
@@ -111,7 +111,7 @@ namespace MonitoringCurve
         }
         private bool CheckSenddata() //检查串口设置 
         {
-            if (lbxSendData.Text.Trim() == "") return false;
+            if (tbxSendData.Text.Trim() == "") return false;
             return true;
         }
         private void SetPortProperty() //检查串口属性
@@ -233,12 +233,13 @@ namespace MonitoringCurve
         }
         private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            System.Threading.Thread.Sleep(100);//延时100ms等待串口接收 
+            System.Threading.Thread.Sleep(80);//延时100ms等待串口接收 
             //this.Invoke是跨线程访问方法
             this.Invoke((EventHandler)(delegate
             {
                 if (isHex == false)
                 {
+                    sp.ReadTimeout = 100000;
                     lbxReceData.Text += sp.ReadLine();
 
                 }
@@ -247,13 +248,21 @@ namespace MonitoringCurve
                     Byte[] ReceivedData = new Byte[sp.BytesToRead+1]; // 创建接收字节数组 
                     sp.Read(ReceivedData, 0, ReceivedData.Length); // 读取所接受字节的数据 
                     string RecvDataText = null;
+
+                    //    RecvDataText = Encoding.Default.GetString(ReceivedData);
+                    //RecvDataText = RecvDataText.Split(' ');
+                    //   String [] sArray = RecvDataText.Split(new char[] { ' '});
+
+
                     for (int i = 0; i < ReceivedData.Length - 1; i++)
                     {
-                        RecvDataText += (ReceivedData[i].ToString("X2") + "");
+                        //ReceivedData[i] = Convert.ToByte(sArray[i],16);
+                        RecvDataText += ReceivedData[i].ToString("X2") + " ";  //("0x" + ReceivedData[i].ToString("X2") + ""); //.ToString("X2"
                         CommReceivedData[i] = ReceivedData[i];
                     }
-                    lbxReceData.Text += RecvDataText;
-                    lbxReceData.Text += DateTime.Now.ToString("hh:mm:ss:ffff");
+                    RecvDataText += "--";
+                    RecvDataText += DateTime.Now.ToString("HH:mm:ss:fff");
+                    lbxReceData.Items.Add(RecvDataText);
                 }
                 sp.DiscardInBuffer(); // 丢弃缓冲区里的数据 
             }));
@@ -261,7 +270,7 @@ namespace MonitoringCurve
 
         private void BtnClearData_Click(object sender, EventArgs e)
         {
-            lbxReceData.Text = "";
+            lbxReceData.Items.Clear();
         }
 
         private void BtnSentData_Click(object sender, EventArgs e)
@@ -270,7 +279,15 @@ namespace MonitoringCurve
             {
                 try // 写串口数据 
                 {
-                    sp.WriteLine(lbxSendData.Text);
+                    string[] strArr = tbxSendData.Text.Trim().Split(' ');
+                    byte[] data = new byte[strArr.Length];
+                    //逐个字符变为16进制字节数据
+                    for (int i = 0; i < strArr.Length; i++)
+                    {
+                        data[i] = Convert.ToByte(strArr[i], 16);
+                    }
+                    sp.Write(data, 0, data.Length);
+                    //sp.WriteLine("FF FF 0A 00 00 00 00 00 00 01 6D 00 78");//"FF FF 00 00 FF FF"
                 }
                 catch (Exception)
                 {
@@ -283,12 +300,18 @@ namespace MonitoringCurve
                 MessageBox.Show("串口未打开！", "错误提示！");
                 return;
             }
-            if(!CheckSenddata()) // 检测要发送的数据 
+            if (!CheckSenddata()) // 检测要发送的数据 
             {
                 MessageBox.Show("请输入要发送的数据！", "错误提示！");
                 return;
             }
             
+        }
+
+        private void SerialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+        {
+            MessageBox.Show("接收数据错误！", "错误提示！");
+            return;
         }
     }
 }
