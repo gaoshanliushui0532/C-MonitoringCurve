@@ -16,8 +16,12 @@ namespace MonitoringCurve
         public Form1()
         {
             InitializeComponent();
+
         }
-      
+
+        // Form serialForm = new Form2();//实体化一个Form类
+        private Form serialForm = null; //定义子窗口对象
+
         static DateTime startTime = DateTime.Now.AddSeconds(-1);
         DateTime endTime = startTime.AddSeconds(10);
         DateTime kd = DateTime.Parse("00:00:01");
@@ -40,6 +44,8 @@ namespace MonitoringCurve
             chart1.Series["Series6"].ChartType = SeriesChartType.Line;//设置图表类型
             chart1.Series["Series7"].ChartType = SeriesChartType.Line;//设置图表类型
             chart1.Series["Series8"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series9"].ChartType = SeriesChartType.Line;//设置图表类型
+            chart1.Series["Series10"].ChartType = SeriesChartType.Line;//设置图表类型
 
             chart1.Series["Series1"].IsValueShownAsLabel = true;//显示数据点的值
             chart1.Series["Series2"].IsValueShownAsLabel = true;//显示数据点的值
@@ -62,10 +68,10 @@ namespace MonitoringCurve
             chart1.Series["Series7"].Enabled = true;
             chart1.Series["Series8"].Enabled = true;
             chart1.Series["Series9"].Enabled = true;
-            chart1.Series["Series10"].Enabled = true;
-            chart1.Series["Series11"].Enabled = true;
-            chart1.Series["Series12"].Enabled = true;
-            chart1.Series["Series13"].Enabled = true;
+            chart1.Series["Series10"].Enabled = false;
+            chart1.Series["Series11"].Enabled = false;
+            chart1.Series["Series12"].Enabled = false;
+            chart1.Series["Series13"].Enabled = false;
             // 线的颜色：红色
             chart1.Series["Series1"].Color = System.Drawing.Color.Red;
             chart1.Series["Series2"].Color = System.Drawing.Color.Blue;
@@ -76,12 +82,27 @@ namespace MonitoringCurve
             chart1.Series["Series1"].BorderWidth = 2;
             chart1.Series["Series2"].BorderWidth = 2;
             // 图示上的文字
-            chart1.Series["Series1"].LegendText = "温度";
-            chart1.Series["Series2"].LegendText = "风速";
-            chart1.Series["Series3"].LegendText = "33";
+            chart1.Series["Series1"].LegendText = "出水温度";
+            chart1.Series["Series2"].LegendText = "进水温度";
+            chart1.Series["Series3"].LegendText = "比例阀电流";
+            chart1.Series["Series4"].LegendText = "水流量";
+            chart1.Series["Series5"].LegendText = "风机风速";
+            chart1.Series["Series6"].LegendText = "备用";
+            chart1.Series["Series7"].LegendText = "备用";
+            chart1.Series["Series8"].LegendText = "备用";
+            chart1.Series["Series9"].LegendText = "备用";
+            chart1.Series["Series10"].LegendText = "备用";
 
             chart1.Series["Series1"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
             chart1.Series["Series2"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series3"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series4"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series5"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series6"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series7"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series8"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series9"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
+            chart1.Series["Series10"].MarkerStyle = MarkerStyle.Circle; //线条上的数据点标志类型
 
             //X轴设置
             // chart1.ChartAreas["ChartArea1"].AxisX.Title = "时间";//X轴标题
@@ -116,22 +137,6 @@ namespace MonitoringCurve
             chart1.Series["Series1"].XValueType = ChartValueType.DateTime;     //X轴标签为时间类型
             chart1.ChartAreas["ChartArea1"].AxisX.LabelStyle.Format = "HH:mm:ss";  //X轴上显示时、分、秒
 
-
-            // 准备数据
-            int[] values = { 95, 30, 20, 23, 60, 87, 42, 77, 92, 51, 29, 11, 11, 87 };
-
-            // 在chart中显示数据
-           //int x = 0;
-            //foreach (int v in values)
-            {
-
-          //      Random rd = new Random();       //随机函数，产生Y轴数据
-           //     DataTable dt = new DataTable(); //创建数据表，存储数据
-
-             //   series.Points.AddXY(DateTime.Now.ToString("hh:mm:ss:ffff"), Form2.CommReceivedData[0]);//yy-MM-dd 
-              //  series1.Points.AddXY(DateTime.Now, Form2.CommReceivedData[1]);
-                //x++;
-            }
             //清空原来数据缓存
             chart1.Series["Series1"].Points.Clear();
 
@@ -147,12 +152,32 @@ namespace MonitoringCurve
 
         private void 通讯ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form serialForm = new Form2();//实体化一个Form类
-            serialForm.Show();//弹出f
+            //Form serialForm = new Form2();//实体化一个Form类
+            // this.ShowInTaskbar = true;
+            if (serialForm == null || serialForm.IsDisposed)
+            {
+                serialForm = new Form2();
+            }
+           // serialForm.MdiParent = this; //建立父子关系
+
+            serialForm.Show(); //显示子窗口
+            serialForm.Focus();  //子窗口获得焦点
+            serialForm.ShowInTaskbar = true;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            //判断校验和
+            int nSum = 0;
+            int ii;
+            for (ii = 0; ii < 14; ii++)
+                nSum += Form2.CommReceivedData[ii];
+            ii = (nSum >> 8) ^ 0xaa;
+            nSum = (nSum & 0xFF) ^ 0x55;
+            nSum = ii + nSum;    // 添加校验和 
+            if (nSum != Form2.CommReceivedData[14])
+                return;
+           
             DataRow dr = dt.NewRow();
             dr["XTime"] = DateTime.Now.ToString("hh:mm:ss:ffff");
             dr["YTemp"] = Form2.CommReceivedData[0];// random.Next(0, 100);
@@ -204,13 +229,31 @@ namespace MonitoringCurve
 
         private void ToolStripButton1_Click(object sender, EventArgs e)
         {
-            if (timer1.Enabled == true)
-                timer1.Enabled = false;
+            if(Form2.isOpen)
+            {
+                if (timer1.Enabled == true)
+                    timer1.Enabled = false;
+                else
+                {
+                    //BtnOpenCom_Click();
+                    timer1.Enabled = true;
+                }
+            }
             else
             {
                 //BtnOpenCom_Click();
-                timer1.Enabled = true;
+                timer1.Enabled = false;
             }
+        }
+
+        private void Button20_Click(object sender, EventArgs e)
+        {
+
+            string[] strArr = textBox20.Text.Trim().Split(' ');
+
+
+
+         //   Form2.BtnSentData_Click(sender,e);
         }
     }
 }

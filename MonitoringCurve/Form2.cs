@@ -14,9 +14,8 @@ namespace MonitoringCurve
     public partial class Form2 : Form
     {
         SerialPort sp = null; //声明一个串口类
-        bool isOpen = false;
+        public static bool isOpen = false;
         bool isSetProperty = false;
-        bool isHex = false;
         public static Byte[] CommReceivedData = new Byte[100]; // 创建接收字节数组 
         public Form2()
         {
@@ -66,7 +65,9 @@ namespace MonitoringCurve
             cbxParity.Items.Add("偶校验");
             cbxParity.SelectedIndex = 0;
             // 默认char 类型
-            rbnChar.Checked = true;
+            rbnHex.Checked = true;
+            // 检测串口端口 
+            BtnCheckCom_Click(sender, e);
         }
 
         private void BtnCheckCom_Click(object sender, EventArgs e)
@@ -161,19 +162,12 @@ namespace MonitoringCurve
             sp.RtsEnable = true;
             //定义数据接收事件，当串口接收到数据后触发事件
             sp.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
-            if (rbnHex.Checked)
-            {
-                isHex = true;
-            }
-            else
-            {
-                isHex = false;
-            }
 
         }
 
         private void BtnOpenCom_Click(object sender, EventArgs e)
         {
+
             if (isOpen == false)
             {
                 if (!CheckPortSetting()) // 检查串口设置 
@@ -221,7 +215,7 @@ namespace MonitoringCurve
                     cbxDataBit.Enabled = true;
                     cbxParity.Enabled = true;
                     cbxStopBit.Enabled = true;
-                    rbnChar.Enabled = false;
+                    rbnChar.Enabled = true;
                     rbnHex.Enabled = true;
                 }
                 catch (Exception)
@@ -237,7 +231,7 @@ namespace MonitoringCurve
             //this.Invoke是跨线程访问方法
             this.Invoke((EventHandler)(delegate
             {
-                if (isHex == false)
+                if (rbnHex.Checked == false)
                 {
                     sp.ReadTimeout = 100000;
                     lbxReceData.Text += sp.ReadLine();
@@ -255,14 +249,26 @@ namespace MonitoringCurve
 
                     int DataLength;
                     DataLength = ReceivedData.Length;
-                    if (DataLength > 14)
-                        DataLength = 14;
-                    for (int i = 0; i < DataLength - 1; i++)
+                    if (DataLength > 15)
+                        DataLength = 15;
+                    for (int i = 0; i < DataLength; i++)
                     {
                         //ReceivedData[i] = Convert.ToByte(sArray[i],16);
                         RecvDataText += ReceivedData[i].ToString("X2") + " ";  //("0x" + ReceivedData[i].ToString("X2") + ""); //.ToString("X2"
                         CommReceivedData[i] = ReceivedData[i];
                     }
+                    //判断校验和
+                    /*
+                    int nSum = 0;
+                    int ii = 0;
+                    for (ii = 0; ii < 14; ii++)
+                        nSum += CommReceivedData[ii];
+                    ii = (nSum >> 8) ^ 0xaa;
+                    nSum = (nSum & 0xFF) ^ 0x55;
+                    nSum = ii + nSum;    // 添加校验和 
+                    if (nSum != CommReceivedData[14])
+                        return;
+                    */
                     RecvDataText += "--";
                     RecvDataText += DateTime.Now.ToString("HH:mm:ss:fff");
                     lbxReceData.Items.Add(RecvDataText);
@@ -276,7 +282,7 @@ namespace MonitoringCurve
             lbxReceData.Items.Clear();
         }
 
-        private void BtnSentData_Click(object sender, EventArgs e)
+        public void BtnSentData_Click(object sender, EventArgs e)
         {
             if(isOpen)
             {
@@ -315,6 +321,21 @@ namespace MonitoringCurve
         {
             MessageBox.Show("接收数据错误！", "错误提示！");
             return;
+        }
+
+        private void RbnChar_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
         }
     }
 }

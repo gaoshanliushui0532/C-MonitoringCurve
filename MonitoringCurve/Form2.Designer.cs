@@ -86,9 +86,10 @@
             // 
             // btnOpenCom
             // 
+            this.btnOpenCom.AutoSize = true;
             this.btnOpenCom.Location = new System.Drawing.Point(112, 216);
             this.btnOpenCom.Name = "btnOpenCom";
-            this.btnOpenCom.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenCom.Size = new System.Drawing.Size(77, 25);
             this.btnOpenCom.TabIndex = 11;
             this.btnOpenCom.Text = "打开串口";
             this.btnOpenCom.UseVisualStyleBackColor = true;
@@ -96,9 +97,10 @@
             // 
             // btnCheckCom
             // 
+            this.btnCheckCom.AutoSize = true;
             this.btnCheckCom.Location = new System.Drawing.Point(20, 216);
             this.btnCheckCom.Name = "btnCheckCom";
-            this.btnCheckCom.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckCom.Size = new System.Drawing.Size(77, 25);
             this.btnCheckCom.TabIndex = 10;
             this.btnCheckCom.Text = "检测串口";
             this.btnCheckCom.UseVisualStyleBackColor = true;
@@ -210,10 +212,12 @@
             this.rbnChar.TabStop = true;
             this.rbnChar.Text = "字符显示";
             this.rbnChar.UseVisualStyleBackColor = true;
+            this.rbnChar.CheckedChanged += new System.EventHandler(this.RbnChar_CheckedChanged);
             // 
             // rbnHex
             // 
             this.rbnHex.AutoSize = true;
+            this.rbnHex.Checked = true;
             this.rbnHex.Location = new System.Drawing.Point(33, 75);
             this.rbnHex.Name = "rbnHex";
             this.rbnHex.Size = new System.Drawing.Size(82, 19);
@@ -262,9 +266,11 @@
             // 
             // btnSentData
             // 
+            this.btnSentData.AllowDrop = true;
+            this.btnSentData.AutoSize = true;
             this.btnSentData.Location = new System.Drawing.Point(763, 375);
             this.btnSentData.Name = "btnSentData";
-            this.btnSentData.Size = new System.Drawing.Size(75, 23);
+            this.btnSentData.Size = new System.Drawing.Size(77, 25);
             this.btnSentData.TabIndex = 12;
             this.btnSentData.Text = "发送数据";
             this.btnSentData.UseVisualStyleBackColor = true;
@@ -272,9 +278,11 @@
             // 
             // btnClearData
             // 
+            this.btnClearData.AllowDrop = true;
+            this.btnClearData.AutoSize = true;
             this.btnClearData.Location = new System.Drawing.Point(763, 304);
             this.btnClearData.Name = "btnClearData";
-            this.btnClearData.Size = new System.Drawing.Size(75, 23);
+            this.btnClearData.Size = new System.Drawing.Size(77, 25);
             this.btnClearData.TabIndex = 11;
             this.btnClearData.Text = "清空数据";
             this.btnClearData.UseVisualStyleBackColor = true;
@@ -293,7 +301,10 @@
             this.Controls.Add(this.串口设置);
             this.Name = "Form2";
             this.Text = "串口助手";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.MdiChildActivate += new System.EventHandler(this.Form2_Load);
             this.串口设置.ResumeLayout(false);
             this.串口设置.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -302,6 +313,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
