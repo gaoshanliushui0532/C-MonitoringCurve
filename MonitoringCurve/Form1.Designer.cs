@@ -102,6 +102,17 @@
             this.button19 = new System.Windows.Forms.Button();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.button20 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbxReceData = new System.Windows.Forms.ListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbxSendData = new System.Windows.Forms.TextBox();
+            this.btnSentData = new System.Windows.Forms.Button();
+            this.btnClearData = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbnChar = new System.Windows.Forms.RadioButton();
+            this.rbnHex = new System.Windows.Forms.RadioButton();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -110,6 +121,10 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -138,7 +153,7 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 325);
+            this.groupBox1.Location = new System.Drawing.Point(12, 390);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(1380, 112);
@@ -365,7 +380,7 @@
             // 通讯ToolStripMenuItem
             // 
             this.通讯ToolStripMenuItem.Name = "通讯ToolStripMenuItem";
-            this.通讯ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.通讯ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.通讯ToolStripMenuItem.Text = "通讯";
             this.通讯ToolStripMenuItem.Click += new System.EventHandler(this.通讯ToolStripMenuItem_Click);
             // 
@@ -375,7 +390,7 @@
             this.panel2.AutoSize = true;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 457);
+            this.panel2.Location = new System.Drawing.Point(0, 522);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel2.Size = new System.Drawing.Size(1349, 2);
@@ -430,10 +445,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 62);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1349, 257);
+            this.tabControl1.Size = new System.Drawing.Size(1349, 322);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -443,7 +459,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1341, 228);
+            this.tabPage1.Size = new System.Drawing.Size(1341, 293);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "曲线视图";
             // 
@@ -526,7 +542,7 @@
             this.chart1.Series.Add(series11);
             this.chart1.Series.Add(series12);
             this.chart1.Series.Add(series13);
-            this.chart1.Size = new System.Drawing.Size(1335, 222);
+            this.chart1.Size = new System.Drawing.Size(1335, 287);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -555,7 +571,7 @@
             this.tabPage2.Controls.Add(this.button20);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1341, 228);
+            this.tabPage2.Size = new System.Drawing.Size(1341, 293);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "设置视图";
             // 
@@ -748,14 +764,136 @@
             this.button20.Size = new System.Drawing.Size(77, 25);
             this.button20.TabIndex = 21;
             this.button20.Text = "设置温度";
-            this.button20.UseVisualStyleBackColor = false;
+            this.button20.UseMnemonic = false;
+            this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.Button20_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.groupBox4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1341, 293);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "串口助手";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lbxReceData
+            // 
+            this.lbxReceData.FormattingEnabled = true;
+            this.lbxReceData.ItemHeight = 15;
+            this.lbxReceData.Location = new System.Drawing.Point(3, 21);
+            this.lbxReceData.Name = "lbxReceData";
+            this.lbxReceData.Size = new System.Drawing.Size(1332, 106);
+            this.lbxReceData.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.AutoSize = true;
+            this.groupBox3.Controls.Add(this.lbxReceData);
+            this.groupBox3.Location = new System.Drawing.Point(3, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1341, 151);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "数据接收";
+            // 
+            // tbxSendData
+            // 
+            this.tbxSendData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbxSendData.Location = new System.Drawing.Point(3, 21);
+            this.tbxSendData.Multiline = true;
+            this.tbxSendData.Name = "tbxSendData";
+            this.tbxSendData.Size = new System.Drawing.Size(1043, 89);
+            this.tbxSendData.TabIndex = 0;
+            this.tbxSendData.Text = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
+            // 
+            // btnSentData
+            // 
+            this.btnSentData.AllowDrop = true;
+            this.btnSentData.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSentData.Location = new System.Drawing.Point(154, 61);
+            this.btnSentData.Name = "btnSentData";
+            this.btnSentData.Size = new System.Drawing.Size(94, 43);
+            this.btnSentData.TabIndex = 15;
+            this.btnSentData.Text = "发送数据";
+            this.btnSentData.UseVisualStyleBackColor = true;
+            this.btnSentData.Click += new System.EventHandler(this.BtnSentData_Click);
+            // 
+            // btnClearData
+            // 
+            this.btnClearData.AllowDrop = true;
+            this.btnClearData.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnClearData.Location = new System.Drawing.Point(28, 61);
+            this.btnClearData.Name = "btnClearData";
+            this.btnClearData.Size = new System.Drawing.Size(94, 43);
+            this.btnClearData.TabIndex = 14;
+            this.btnClearData.Text = "清空数据";
+            this.btnClearData.UseVisualStyleBackColor = true;
+            this.btnClearData.Click += new System.EventHandler(this.BtnClearData_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.AutoSize = true;
+            this.groupBox4.Controls.Add(this.tbxSendData);
+            this.groupBox4.Location = new System.Drawing.Point(0, 177);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1049, 113);
+            this.groupBox4.TabIndex = 13;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "数据发送";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnSentData);
+            this.groupBox2.Controls.Add(this.btnClearData);
+            this.groupBox2.Controls.Add(this.rbnChar);
+            this.groupBox2.Controls.Add(this.rbnHex);
+            this.groupBox2.Location = new System.Drawing.Point(1055, 177);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(280, 110);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "显示类型";
+            // 
+            // rbnChar
+            // 
+            this.rbnChar.AutoSize = true;
+            this.rbnChar.Location = new System.Drawing.Point(28, 24);
+            this.rbnChar.Name = "rbnChar";
+            this.rbnChar.Size = new System.Drawing.Size(88, 19);
+            this.rbnChar.TabIndex = 2;
+            this.rbnChar.TabStop = true;
+            this.rbnChar.Text = "字符显示";
+            this.rbnChar.UseVisualStyleBackColor = true;
+            // 
+            // rbnHex
+            // 
+            this.rbnHex.AutoSize = true;
+            this.rbnHex.Checked = true;
+            this.rbnHex.Location = new System.Drawing.Point(154, 24);
+            this.rbnHex.Name = "rbnHex";
+            this.rbnHex.Size = new System.Drawing.Size(82, 19);
+            this.rbnHex.TabIndex = 3;
+            this.rbnHex.TabStop = true;
+            this.rbnHex.Text = "HEX显示";
+            this.rbnHex.UseVisualStyleBackColor = true;
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.SerialPort1_ErrorReceived);
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort1_DataReceived);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 459);
+            this.ClientSize = new System.Drawing.Size(1349, 524);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel2);
@@ -778,6 +916,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -821,7 +966,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textBox12;
@@ -842,6 +986,18 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.ListBox lbxReceData;
+        private System.Windows.Forms.Button btnSentData;
+        private System.Windows.Forms.Button btnClearData;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox tbxSendData;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbnChar;
+        public System.Windows.Forms.RadioButton rbnHex;
+        public System.IO.Ports.SerialPort serialPort1;
     }
 }
 

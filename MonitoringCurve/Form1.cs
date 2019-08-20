@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
+using System.IO.Ports;
+
 namespace MonitoringCurve
 {
     public partial class Form1 : Form
@@ -18,7 +20,7 @@ namespace MonitoringCurve
             InitializeComponent();
 
         }
-
+        
         // Form serialForm = new Form2();//实体化一个Form类
         private Form serialForm = null; //定义子窗口对象
 
@@ -28,10 +30,12 @@ namespace MonitoringCurve
         Random random = new Random();       //随机函数，产生Y轴数据
         DataTable dt = new DataTable(); //创建数据表，存储数据
         int i = 0;      //显示数据表中的数据行数
-          
+        //public static SerialPort serialPort1 = new SerialPort();
+
         private void Form1_Load(object sender, EventArgs e)
         {
-           // #region 折线图
+            
+            // #region 折线图
             // 设置显示范围        
 
             chart1.DataSource = dt;//绑定数据
@@ -149,7 +153,7 @@ namespace MonitoringCurve
             dt.Columns.Add("YT44p", System.Type.GetType("System.String"));
 
         }
-
+        
         private void 通讯ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Form serialForm = new Form2();//实体化一个Form类
@@ -229,31 +233,164 @@ namespace MonitoringCurve
 
         private void ToolStripButton1_Click(object sender, EventArgs e)
         {
-            if(Form2.isOpen)
+
+            if(serialPort1.IsOpen)
             {
-                if (timer1.Enabled == true)
-                    timer1.Enabled = false;
-                else
+                string Str;
+                try // 写串口数据 
                 {
-                    //BtnOpenCom_Click();
-                    timer1.Enabled = true;
+                    if (timer1.Enabled == true)
+                    {
+                        Str = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
+                        timer1.Enabled = false;
+                    }
+                    else
+                    {
+                        Str = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
+                        timer1.Enabled = true;
+                    }
+                   
+                    string[] strArr = Str.Trim().Split(' ');
+                    byte[] data = new byte[strArr.Length];
+                    //逐个字符变为16进制字节数据
+                    for (int i = 0; i < strArr.Length; i++)
+                    {
+                        data[i] = Convert.ToByte(strArr[i], 16);
+                    }
+                    serialPort1.Write(data, 0, data.Length);
+                    //sp.WriteLine("FF FF 0A 00 00 00 00 00 00 01 6D 00 78");//"FF FF 00 00 FF FF"
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("发送数据时发生错误！", "错误提示！");
                 }
             }
             else
             {
                 //BtnOpenCom_Click();
                 timer1.Enabled = false;
+                
+                MessageBox.Show("串口未打开！", "错误提示！");
+                return;
             }
         }
+
 
         private void Button20_Click(object sender, EventArgs e)
         {
 
             string[] strArr = textBox20.Text.Trim().Split(' ');
 
+        }
+        private bool CheckSenddata() //检查串口设置 
+        {
+            if (tbxSendData.Text.Trim() == "") return false;
+            return true;
+        }
+        private void BtnSentData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (serialPort1.IsOpen)
+                {
+                    try // 写串口数据 
+                    {
+                        string[] strArr = tbxSendData.Text.Trim().Split(' ');
+                        byte[] data = new byte[strArr.Length];
+                        //逐个字符变为16进制字节数据
+                        for (int i = 0; i < strArr.Length; i++)
+                        {
+                            data[i] = Convert.ToByte(strArr[i], 16);
+                        }
+                        serialPort1.Write(data, 0, data.Length);
+                        //sp.WriteLine("FF FF 0A 00 00 00 00 00 00 01 6D 00 78");//"FF FF 00 00 FF FF"
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("发送数据时发生错误！", "错误提示！");
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("串口未打开！", "错误提示！");
+                    return;
+                }
+                if (!CheckSenddata()) // 检测要发送的数据 
+                {
+                    MessageBox.Show("请输入要发送的数据！", "错误提示！");
+                    return;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("请输入要发送的数据！", "错误提示！");
+                return;
+            }
 
-         //   Form2.BtnSentData_Click(sender,e);
+        }
+
+        private void BtnClearData_Click(object sender, EventArgs e)
+        {
+            lbxReceData.Items.Clear();
+        }
+
+        private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            System.Threading.Thread.Sleep(50);//延时100ms等待串口接收 
+            //this.Invoke是跨线程访问方法
+            this.Invoke((EventHandler)(delegate
+            {
+                if (rbnHex.Checked == false)
+                {
+                    serialPort1.ReadTimeout = 100000;
+                    lbxReceData.Text += serialPort1.ReadLine();
+
+                }
+                else
+                {
+                    Byte[] ReceivedData = new Byte[serialPort1.BytesToRead + 1]; // 创建接收字节数组 
+                    serialPort1.Read(ReceivedData, 0, ReceivedData.Length); // 读取所接受字节的数据 
+                    string RecvDataText = null;
+
+                    //    RecvDataText = Encoding.Default.GetString(ReceivedData);
+                    //RecvDataText = RecvDataText.Split(' ');
+                    //   String [] sArray = RecvDataText.Split(new char[] { ' '});
+
+                    int DataLength;
+                    DataLength = ReceivedData.Length;
+                    if (DataLength > 15)
+                        DataLength = 15;
+                    for (int i = 0; i < DataLength; i++)
+                    {
+                        //ReceivedData[i] = Convert.ToByte(sArray[i],16);
+                        RecvDataText += ReceivedData[i].ToString("X2") + " ";  //("0x" + ReceivedData[i].ToString("X2") + ""); //.ToString("X2"
+                        Form2.CommReceivedData[i] = ReceivedData[i];
+                    }
+                    //判断校验和
+                    /*
+                    int nSum = 0;
+                    int ii = 0;
+                    for (ii = 0; ii < 14; ii++)
+                        nSum += CommReceivedData[ii];
+                    ii = (nSum >> 8) ^ 0xaa;
+                    nSum = (nSum & 0xFF) ^ 0x55;
+                    nSum = ii + nSum;    // 添加校验和 
+                    if (nSum != CommReceivedData[14])
+                        return;
+                    */
+                    RecvDataText += "--";
+                    RecvDataText += DateTime.Now.ToString("HH:mm:ss:fff");
+                    lbxReceData.Items.Add(RecvDataText);
+                }
+                serialPort1.DiscardInBuffer(); // 丢弃缓冲区里的数据 
+            }));
+        }
+
+        private void SerialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+        {
+            MessageBox.Show("接收数据错误！", "错误提示！");
+            return;
         }
     }
 }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.串口设置 = new System.Windows.Forms.GroupBox();
             this.btnOpenCom = new System.Windows.Forms.Button();
             this.btnCheckCom = new System.Windows.Forms.Button();
@@ -43,25 +41,8 @@
             this.cbxStopBit = new System.Windows.Forms.ComboBox();
             this.cbxBandBate = new System.Windows.Forms.ComboBox();
             this.cbxCOMPort = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbnChar = new System.Windows.Forms.RadioButton();
-            this.rbnHex = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbxReceData = new System.Windows.Forms.ListBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tbxSendData = new System.Windows.Forms.TextBox();
-            this.btnSentData = new System.Windows.Forms.Button();
-            this.btnClearData = new System.Windows.Forms.Button();
             this.串口设置.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // serialPort1
-            // 
-            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.SerialPort1_ErrorReceived);
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.sp_DataReceived);
             // 
             // 串口设置
             // 
@@ -191,113 +172,11 @@
             this.cbxCOMPort.Size = new System.Drawing.Size(110, 23);
             this.cbxCOMPort.TabIndex = 0;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rbnChar);
-            this.groupBox2.Controls.Add(this.rbnHex);
-            this.groupBox2.Location = new System.Drawing.Point(21, 289);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(226, 134);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "显示类型";
-            // 
-            // rbnChar
-            // 
-            this.rbnChar.AutoSize = true;
-            this.rbnChar.Location = new System.Drawing.Point(33, 35);
-            this.rbnChar.Name = "rbnChar";
-            this.rbnChar.Size = new System.Drawing.Size(88, 19);
-            this.rbnChar.TabIndex = 2;
-            this.rbnChar.TabStop = true;
-            this.rbnChar.Text = "字符显示";
-            this.rbnChar.UseVisualStyleBackColor = true;
-            this.rbnChar.CheckedChanged += new System.EventHandler(this.RbnChar_CheckedChanged);
-            // 
-            // rbnHex
-            // 
-            this.rbnHex.AutoSize = true;
-            this.rbnHex.Checked = true;
-            this.rbnHex.Location = new System.Drawing.Point(33, 75);
-            this.rbnHex.Name = "rbnHex";
-            this.rbnHex.Size = new System.Drawing.Size(82, 19);
-            this.rbnHex.TabIndex = 3;
-            this.rbnHex.TabStop = true;
-            this.rbnHex.Text = "HEX显示";
-            this.rbnHex.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lbxReceData);
-            this.groupBox3.Location = new System.Drawing.Point(274, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(570, 256);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "数据接收";
-            // 
-            // lbxReceData
-            // 
-            this.lbxReceData.FormattingEnabled = true;
-            this.lbxReceData.ItemHeight = 15;
-            this.lbxReceData.Location = new System.Drawing.Point(0, 24);
-            this.lbxReceData.Name = "lbxReceData";
-            this.lbxReceData.Size = new System.Drawing.Size(564, 229);
-            this.lbxReceData.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.tbxSendData);
-            this.groupBox4.Location = new System.Drawing.Point(274, 274);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(483, 149);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "数据发送";
-            // 
-            // tbxSendData
-            // 
-            this.tbxSendData.Location = new System.Drawing.Point(6, 15);
-            this.tbxSendData.Multiline = true;
-            this.tbxSendData.Name = "tbxSendData";
-            this.tbxSendData.Size = new System.Drawing.Size(471, 128);
-            this.tbxSendData.TabIndex = 0;
-            this.tbxSendData.Text = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
-            // 
-            // btnSentData
-            // 
-            this.btnSentData.AllowDrop = true;
-            this.btnSentData.AutoSize = true;
-            this.btnSentData.Location = new System.Drawing.Point(763, 375);
-            this.btnSentData.Name = "btnSentData";
-            this.btnSentData.Size = new System.Drawing.Size(77, 25);
-            this.btnSentData.TabIndex = 12;
-            this.btnSentData.Text = "发送数据";
-            this.btnSentData.UseVisualStyleBackColor = true;
-            this.btnSentData.Click += new System.EventHandler(this.BtnSentData_Click);
-            // 
-            // btnClearData
-            // 
-            this.btnClearData.AllowDrop = true;
-            this.btnClearData.AutoSize = true;
-            this.btnClearData.Location = new System.Drawing.Point(763, 304);
-            this.btnClearData.Name = "btnClearData";
-            this.btnClearData.Size = new System.Drawing.Size(77, 25);
-            this.btnClearData.TabIndex = 11;
-            this.btnClearData.Text = "清空数据";
-            this.btnClearData.UseVisualStyleBackColor = true;
-            this.btnClearData.Click += new System.EventHandler(this.BtnClearData_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 450);
-            this.Controls.Add(this.btnSentData);
-            this.Controls.Add(this.btnClearData);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(263, 303);
             this.Controls.Add(this.串口设置);
             this.Name = "Form2";
             this.Text = "串口助手";
@@ -307,19 +186,11 @@
             this.MdiChildActivate += new System.EventHandler(this.Form2_Load);
             this.串口设置.ResumeLayout(false);
             this.串口设置.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.GroupBox 串口设置;
         private System.Windows.Forms.Button btnOpenCom;
         private System.Windows.Forms.Button btnCheckCom;
@@ -333,14 +204,5 @@
         private System.Windows.Forms.ComboBox cbxStopBit;
         private System.Windows.Forms.ComboBox cbxBandBate;
         private System.Windows.Forms.ComboBox cbxCOMPort;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rbnChar;
-        private System.Windows.Forms.RadioButton rbnHex;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox lbxReceData;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnSentData;
-        private System.Windows.Forms.Button btnClearData;
-        private System.Windows.Forms.TextBox tbxSendData;
     }
 }

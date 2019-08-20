@@ -13,10 +13,11 @@ namespace MonitoringCurve
 {
     public partial class Form2 : Form
     {
-        SerialPort sp = null; //声明一个串口类
+        //public static SerialPort sp = null; //声明一个串口类
         public static bool isOpen = false;
         bool isSetProperty = false;
         public static Byte[] CommReceivedData = new Byte[100]; // 创建接收字节数组 
+
         public Form2()
         {
             InitializeComponent();
@@ -65,9 +66,9 @@ namespace MonitoringCurve
             cbxParity.Items.Add("偶校验");
             cbxParity.SelectedIndex = 0;
             // 默认char 类型
-            rbnHex.Checked = true;
+            //Form1.rbnHex.Checked = true;
             // 检测串口端口 
-            BtnCheckCom_Click(sender, e);
+          //  BtnCheckCom_Click(sender, e);
         }
 
         private void BtnCheckCom_Click(object sender, EventArgs e)
@@ -78,9 +79,9 @@ namespace MonitoringCurve
             {
                 try
                 {
-                    SerialPort sp = new SerialPort("COM" + Convert.ToString(i + 1));
-                    sp.Open();
-                    sp.Close();
+                    spTemp = Form1.serialPort1. .("COM" + Convert.ToString(i + 1));
+                    spTemp.Open();
+                    spTemp.Close();
                     cbxCOMPort.Items.Add("COM" + Convert.ToString(i + 1));
                     comExistence = true;
 
@@ -110,15 +111,12 @@ namespace MonitoringCurve
             if (cbxParity.Text.Trim() == "") return false;
             return true;
         }
-        private bool CheckSenddata() //检查串口设置 
-        {
-            if (tbxSendData.Text.Trim() == "") return false;
-            return true;
-        }
+       
         private void SetPortProperty() //检查串口属性
         {
-            sp = new SerialPort();
-            sp.PortName = cbxCOMPort.Text.Trim();//设置串口名
+          //  sp = new SerialPort();
+            //Form1.sp = new SerialPort();
+            serialPort1.PortName = cbxCOMPort.Text.Trim();//设置串口名
             sp.BaudRate = Convert.ToInt32(cbxBandBate.Text.Trim());
             //停止位
             float f = Convert.ToSingle(cbxStopBit.Text.Trim());
@@ -182,7 +180,7 @@ namespace MonitoringCurve
                 }
                 try // 打开串口 
                 {
-                    sp.Open();
+                  //  Form1.seri Open();
                     isOpen = true;
                     btnOpenCom.Text = "关闭串口";
                     //串口打开后相关串口属性按钮不可用
@@ -191,8 +189,8 @@ namespace MonitoringCurve
                     cbxDataBit.Enabled = false;
                     cbxParity.Enabled = false;
                     cbxStopBit.Enabled = false;
-                    rbnChar.Enabled = false;
-                    rbnHex.Enabled = true;
+                    //rbnChar.Enabled = false;
+                    //rbnHex.Enabled = true;
                 }
                 catch (Exception)
                 {
@@ -215,8 +213,8 @@ namespace MonitoringCurve
                     cbxDataBit.Enabled = true;
                     cbxParity.Enabled = true;
                     cbxStopBit.Enabled = true;
-                    rbnChar.Enabled = true;
-                    rbnHex.Enabled = true;
+                    //rbnChar.Enabled = true;
+                    //rbnHex.Enabled = true;
                 }
                 catch (Exception)
                 {
@@ -225,102 +223,25 @@ namespace MonitoringCurve
                 }
             }
         }
-        private void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        public void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            System.Threading.Thread.Sleep(50);//延时100ms等待串口接收 
-            //this.Invoke是跨线程访问方法
-            this.Invoke((EventHandler)(delegate
-            {
-                if (rbnHex.Checked == false)
-                {
-                    sp.ReadTimeout = 100000;
-                    lbxReceData.Text += sp.ReadLine();
-
-                }
-                else
-                {
-                    Byte[] ReceivedData = new Byte[sp.BytesToRead+1]; // 创建接收字节数组 
-                    sp.Read(ReceivedData, 0, ReceivedData.Length); // 读取所接受字节的数据 
-                    string RecvDataText = null;
-
-                    //    RecvDataText = Encoding.Default.GetString(ReceivedData);
-                    //RecvDataText = RecvDataText.Split(' ');
-                    //   String [] sArray = RecvDataText.Split(new char[] { ' '});
-
-                    int DataLength;
-                    DataLength = ReceivedData.Length;
-                    if (DataLength > 15)
-                        DataLength = 15;
-                    for (int i = 0; i < DataLength; i++)
-                    {
-                        //ReceivedData[i] = Convert.ToByte(sArray[i],16);
-                        RecvDataText += ReceivedData[i].ToString("X2") + " ";  //("0x" + ReceivedData[i].ToString("X2") + ""); //.ToString("X2"
-                        CommReceivedData[i] = ReceivedData[i];
-                    }
-                    //判断校验和
-                    /*
-                    int nSum = 0;
-                    int ii = 0;
-                    for (ii = 0; ii < 14; ii++)
-                        nSum += CommReceivedData[ii];
-                    ii = (nSum >> 8) ^ 0xaa;
-                    nSum = (nSum & 0xFF) ^ 0x55;
-                    nSum = ii + nSum;    // 添加校验和 
-                    if (nSum != CommReceivedData[14])
-                        return;
-                    */
-                    RecvDataText += "--";
-                    RecvDataText += DateTime.Now.ToString("HH:mm:ss:fff");
-                    lbxReceData.Items.Add(RecvDataText);
-                }
-                sp.DiscardInBuffer(); // 丢弃缓冲区里的数据 
-            }));
+            
         }
 
         private void BtnClearData_Click(object sender, EventArgs e)
         {
-            lbxReceData.Items.Clear();
+            
         }
 
         public void BtnSentData_Click(object sender, EventArgs e)
         {
-            if(isOpen)
-            {
-                try // 写串口数据 
-                {
-                    string[] strArr = tbxSendData.Text.Trim().Split(' ');
-                    byte[] data = new byte[strArr.Length];
-                    //逐个字符变为16进制字节数据
-                    for (int i = 0; i < strArr.Length; i++)
-                    {
-                        data[i] = Convert.ToByte(strArr[i], 16);
-                    }
-                    sp.Write(data, 0, data.Length);
-                    //sp.WriteLine("FF FF 0A 00 00 00 00 00 00 01 6D 00 78");//"FF FF 00 00 FF FF"
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("发送数据时发生错误！", "错误提示！");
-                }
+          
 
-            }
-            else
-            {
-                MessageBox.Show("串口未打开！", "错误提示！");
-                return;
-            }
-            if (!CheckSenddata()) // 检测要发送的数据 
-            {
-                MessageBox.Show("请输入要发送的数据！", "错误提示！");
-                return;
-            }
-            
         }
 
         private void SerialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
-            MessageBox.Show("接收数据错误！", "错误提示！");
-            return;
+           
         }
 
         private void RbnChar_CheckedChanged(object sender, EventArgs e)
@@ -330,12 +251,17 @@ namespace MonitoringCurve
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.SendToBack();
         }
     }
 }
