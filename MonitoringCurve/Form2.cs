@@ -17,6 +17,7 @@ namespace MonitoringCurve
         public static bool isOpen = false;
         bool isSetProperty = false;
         public static Byte[] CommReceivedData = new Byte[100]; // 创建接收字节数组 
+     
 
         public Form2()
         {
@@ -75,31 +76,31 @@ namespace MonitoringCurve
         {
             bool comExistence = false; // 有可用串口标志位 
             cbxCOMPort.Items.Clear(); //清除所有串口标志位
-            for (int i = 0; 1 < 10; i++)
+            try
             {
-                try
+                string[] portList = System.IO.Ports.SerialPort.GetPortNames();
+                for (int i = 0; i < portList.Length; ++i)
                 {
-                    spTemp = Form1.serialPort1. .("COM" + Convert.ToString(i + 1));
-                    spTemp.Open();
-                    spTemp.Close();
-                    cbxCOMPort.Items.Add("COM" + Convert.ToString(i + 1));
-                    comExistence = true;
+                    string name = portList[i];
 
+                    cbxCOMPort.Items.Add(name);
                 }
-                catch (Exception)
-                {
-                    continue;
-                }
-                if (comExistence)
-                {
-                    cbxCOMPort.SelectedIndex = 0;
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("没有找到可用串口！", "错误提示！");
-                }
+                comExistence = true;
 
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("yi没有找到可用串口！", "错误提示！");
+                //continue;
+            }
+            if (comExistence)
+            {
+                cbxCOMPort.SelectedIndex = 0;
+                return;
+            }
+            else
+            {
+                MessageBox.Show("没有找到可用串口！", "错误提示！");
             }
         }
         private bool CheckPortSetting() //检查串口设置 
@@ -114,53 +115,52 @@ namespace MonitoringCurve
        
         private void SetPortProperty() //检查串口属性
         {
-          //  sp = new SerialPort();
-            //Form1.sp = new SerialPort();
-            serialPort1.PortName = cbxCOMPort.Text.Trim();//设置串口名
-            sp.BaudRate = Convert.ToInt32(cbxBandBate.Text.Trim());
+            //CommonRes.serialPort1 = new SerialPort();
+            CommonRes.serialPort1.PortName = cbxCOMPort.Text.Trim();//设置串口名
+            CommonRes.serialPort1.BaudRate = Convert.ToInt32(cbxBandBate.Text.Trim());
             //停止位
             float f = Convert.ToSingle(cbxStopBit.Text.Trim());
             if (f == 0)
             {
-                sp.StopBits = StopBits.None;
+                CommonRes.serialPort1.StopBits = StopBits.None;
             }
             else if (f == 1.5)
             {
-                sp.StopBits = StopBits.OnePointFive;
+                CommonRes.serialPort1.StopBits = StopBits.OnePointFive;
             }
             else if (f == 2)
             {
-                sp.StopBits = StopBits.Two;
+                CommonRes.serialPort1.StopBits = StopBits.Two;
             }
             else
             {
-                sp.StopBits = StopBits.One;
+                CommonRes.serialPort1.StopBits = StopBits.One;
             }
             //设置数据位 
-            sp.DataBits = Convert.ToInt32(cbxDataBit.Text.Trim());
+            CommonRes.serialPort1.DataBits = Convert.ToInt32(cbxDataBit.Text.Trim());
             //设置奇偶校验位
             string str = cbxParity.Text.Trim();
             if (str.CompareTo("无") == 0)
             {
-                sp.Parity = Parity.None;
+                CommonRes.serialPort1.Parity = Parity.None;
             }
             else if (str.CompareTo("奇校验") == 0)
             {
-                sp.Parity = Parity.Odd;
+                CommonRes.serialPort1.Parity = Parity.Odd;
             }
             else if (str.CompareTo("偶") == 0)
             {
-                sp.Parity = Parity.Even;
+                CommonRes.serialPort1.Parity = Parity.Even;
             }
             else
             {
-                sp.Parity = Parity.Even;
+                CommonRes.serialPort1.Parity = Parity.Even;
             }
-            sp.ReadTimeout = 1; // 设置超时读取时间 
-            sp.RtsEnable = true;
+            CommonRes.serialPort1.ReadTimeout = 1; // 设置超时读取时间 
+            CommonRes.serialPort1.RtsEnable = true;
             //定义数据接收事件，当串口接收到数据后触发事件
-            sp.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
-
+            //CommonRes.serialPort1.DataReceived += new SerialDataReceivedEventHandler(Form1.SerialPort1_DataReceived);
+            //Form1.SerialDataReceivedEvent();
         }
 
         private void BtnOpenCom_Click(object sender, EventArgs e)
@@ -180,7 +180,7 @@ namespace MonitoringCurve
                 }
                 try // 打开串口 
                 {
-                  //  Form1.seri Open();
+                    CommonRes.serialPort1.Open();
                     isOpen = true;
                     btnOpenCom.Text = "关闭串口";
                     //串口打开后相关串口属性按钮不可用
@@ -204,7 +204,7 @@ namespace MonitoringCurve
             {
                 try // 关闭串口 
                 {
-                    sp.Close();
+                    CommonRes.serialPort1.Close();
                     isOpen = false;
                     btnOpenCom.Text = "打开串口";
                     //串口打开后相关串口属性按钮不可用
@@ -223,31 +223,8 @@ namespace MonitoringCurve
                 }
             }
         }
-        public void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            
-        }
+      
 
-        private void BtnClearData_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        public void BtnSentData_Click(object sender, EventArgs e)
-        {
-          
-
-        }
-
-        private void SerialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
-        {
-           
-        }
-
-        private void RbnChar_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {

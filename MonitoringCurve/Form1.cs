@@ -18,7 +18,6 @@ namespace MonitoringCurve
         public Form1()
         {
             InitializeComponent();
-
         }
         
         // Form serialForm = new Form2();//实体化一个Form类
@@ -30,7 +29,7 @@ namespace MonitoringCurve
         Random random = new Random();       //随机函数，产生Y轴数据
         DataTable dt = new DataTable(); //创建数据表，存储数据
         int i = 0;      //显示数据表中的数据行数
-        //public static SerialPort serialPort1 = new SerialPort();
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -158,6 +157,7 @@ namespace MonitoringCurve
         {
             //Form serialForm = new Form2();//实体化一个Form类
             // this.ShowInTaskbar = true;
+
             if (serialForm == null || serialForm.IsDisposed)
             {
                 serialForm = new Form2();
@@ -165,6 +165,7 @@ namespace MonitoringCurve
            // serialForm.MdiParent = this; //建立父子关系
 
             serialForm.Show(); //显示子窗口
+            SerialDataReceivedEvent();
             serialForm.Focus();  //子窗口获得焦点
             serialForm.ShowInTaskbar = true;
         }
@@ -234,7 +235,7 @@ namespace MonitoringCurve
         private void ToolStripButton1_Click(object sender, EventArgs e)
         {
 
-            if(serialPort1.IsOpen)
+            if(CommonRes.serialPort1.IsOpen)
             {
                 string Str;
                 try // 写串口数据 
@@ -257,7 +258,7 @@ namespace MonitoringCurve
                     {
                         data[i] = Convert.ToByte(strArr[i], 16);
                     }
-                    serialPort1.Write(data, 0, data.Length);
+                    CommonRes.serialPort1.Write(data, 0, data.Length);
                     //sp.WriteLine("FF FF 0A 00 00 00 00 00 00 01 6D 00 78");//"FF FF 00 00 FF FF"
                 }
                 catch (Exception)
@@ -291,7 +292,7 @@ namespace MonitoringCurve
         {
             try
             {
-                if (serialPort1.IsOpen)
+                if (CommonRes.serialPort1.IsOpen)
                 {
                     try // 写串口数据 
                     {
@@ -302,8 +303,7 @@ namespace MonitoringCurve
                         {
                             data[i] = Convert.ToByte(strArr[i], 16);
                         }
-                        serialPort1.Write(data, 0, data.Length);
-                        //sp.WriteLine("FF FF 0A 00 00 00 00 00 00 01 6D 00 78");//"FF FF 00 00 FF FF"
+                        CommonRes.serialPort1.Write(data, 0, data.Length);
                     }
                     catch (Exception)
                     {
@@ -324,18 +324,22 @@ namespace MonitoringCurve
             }
             catch
             {
-                MessageBox.Show("请输入要发送的数据！", "错误提示！");
+                MessageBox.Show("串口未打开！", "错误提示！");
                 return;
             }
-
         }
 
         private void BtnClearData_Click(object sender, EventArgs e)
         {
             lbxReceData.Items.Clear();
         }
-
-        private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        public  void SerialDataReceivedEvent()
+        {
+            CommonRes.serialPort1 = new SerialPort();
+            //定义数据接收事件，当串口接收到数据后触发事件
+            CommonRes.serialPort1.DataReceived += new SerialDataReceivedEventHandler(SerialPort1_DataReceived);
+        }
+        public void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             System.Threading.Thread.Sleep(50);//延时100ms等待串口接收 
             //this.Invoke是跨线程访问方法
@@ -343,19 +347,16 @@ namespace MonitoringCurve
             {
                 if (rbnHex.Checked == false)
                 {
-                    serialPort1.ReadTimeout = 100000;
-                    lbxReceData.Text += serialPort1.ReadLine();
+                    CommonRes.serialPort1.ReadTimeout = 100000;
+                    lbxReceData.Text += CommonRes.serialPort1.ReadLine();
 
                 }
                 else
                 {
-                    Byte[] ReceivedData = new Byte[serialPort1.BytesToRead + 1]; // 创建接收字节数组 
-                    serialPort1.Read(ReceivedData, 0, ReceivedData.Length); // 读取所接受字节的数据 
+                    Byte[] ReceivedData = new Byte[CommonRes.serialPort1.BytesToRead + 1]; // 创建接收字节数组 
+                    CommonRes.serialPort1.Read(ReceivedData, 0, ReceivedData.Length); // 读取所接受字节的数据 
                     string RecvDataText = null;
 
-                    //    RecvDataText = Encoding.Default.GetString(ReceivedData);
-                    //RecvDataText = RecvDataText.Split(' ');
-                    //   String [] sArray = RecvDataText.Split(new char[] { ' '});
 
                     int DataLength;
                     DataLength = ReceivedData.Length;
@@ -363,8 +364,7 @@ namespace MonitoringCurve
                         DataLength = 15;
                     for (int i = 0; i < DataLength; i++)
                     {
-                        //ReceivedData[i] = Convert.ToByte(sArray[i],16);
-                        RecvDataText += ReceivedData[i].ToString("X2") + " ";  //("0x" + ReceivedData[i].ToString("X2") + ""); //.ToString("X2"
+                        RecvDataText += ReceivedData[i].ToString("X2") + " ";  
                         Form2.CommReceivedData[i] = ReceivedData[i];
                     }
                     //判断校验和
@@ -383,7 +383,7 @@ namespace MonitoringCurve
                     RecvDataText += DateTime.Now.ToString("HH:mm:ss:fff");
                     lbxReceData.Items.Add(RecvDataText);
                 }
-                serialPort1.DiscardInBuffer(); // 丢弃缓冲区里的数据 
+                CommonRes.serialPort1.DiscardInBuffer(); // 丢弃缓冲区里的数据 
             }));
         }
 
@@ -391,6 +391,33 @@ namespace MonitoringCurve
         {
             MessageBox.Show("接收数据错误！", "错误提示！");
             return;
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            groupBox3.Height = tabControl1.Height * 80 / 100;
+            groupBox4.Height = tabControl1.Height * 13 / 100;
+            groupBox4.Top = tabControl1.Height * 80 / 100 + 10;
+
+            groupBox4.Width = tabControl1.Width * 80 / 100 + 10;
+
+            groupBox2.Height = tabControl1.Height * 13 / 100;
+            groupBox2.Top = tabControl1.Height * 80 / 100 + 10;
+
+            groupBox2.Width = tabControl1.Width * 15 / 100 + 10;
+        }
+
+        private void TabControl1_SizeChanged(object sender, EventArgs e)
+        {
+            groupBox3.Height = tabControl1.Height * 80 / 100;
+            groupBox4.Height = tabControl1.Height * 13 / 100;
+            groupBox4.Top = tabControl1.Height * 80 / 100 + 10;
+            groupBox4.Width = tabControl1.Width * 80 / 100 + 10;
+
+            groupBox2.Height = tabControl1.Height * 13 / 100;
+            groupBox2.Top = tabControl1.Height * 80 / 100 + 10;
+
+            groupBox2.Width = tabControl1.Width * 15 / 100 + 10;
         }
     }
 }

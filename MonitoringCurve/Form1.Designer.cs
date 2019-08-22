@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series66 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series67 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series68 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series69 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series70 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series71 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series72 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series73 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series74 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series75 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series76 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series77 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series78 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -103,16 +103,15 @@
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.button20 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.lbxReceData = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbxSendData = new System.Windows.Forms.TextBox();
+            this.lbxReceData = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSentData = new System.Windows.Forms.Button();
             this.btnClearData = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbnChar = new System.Windows.Forms.RadioButton();
             this.rbnHex = new System.Windows.Forms.RadioButton();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tbxSendData = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -123,8 +122,8 @@
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -380,7 +379,7 @@
             // 通讯ToolStripMenuItem
             // 
             this.通讯ToolStripMenuItem.Name = "通讯ToolStripMenuItem";
-            this.通讯ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.通讯ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.通讯ToolStripMenuItem.Text = "通讯";
             this.通讯ToolStripMenuItem.Click += new System.EventHandler(this.通讯ToolStripMenuItem_Click);
             // 
@@ -451,6 +450,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1349, 322);
             this.tabControl1.TabIndex = 5;
+            this.tabControl1.SizeChanged += new System.EventHandler(this.TabControl1_SizeChanged);
             // 
             // tabPage1
             // 
@@ -470,78 +470,78 @@
             this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             this.chart1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
             this.chart1.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea6.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
             this.chart1.DataSource = this.bindingSource1;
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend1.ItemColumnSpacing = 20;
-            legend1.Name = "Legend1";
-            legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend1);
+            legend6.ItemColumnSpacing = 20;
+            legend6.Name = "Legend1";
+            legend6.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend6);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series1.Name = "Series1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series3";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Series4";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Series5";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series6";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series7";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series8";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series9";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Series10";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "Series11";
-            series12.ChartArea = "ChartArea1";
-            series12.Legend = "Legend1";
-            series12.Name = "Series12";
-            series13.ChartArea = "ChartArea1";
-            series13.Legend = "Legend1";
-            series13.Name = "Series13";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
-            this.chart1.Series.Add(series13);
+            series66.ChartArea = "ChartArea1";
+            series66.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series66.Legend = "Legend1";
+            series66.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series66.Name = "Series1";
+            series67.ChartArea = "ChartArea1";
+            series67.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series67.Legend = "Legend1";
+            series67.Name = "Series2";
+            series68.ChartArea = "ChartArea1";
+            series68.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series68.Legend = "Legend1";
+            series68.Name = "Series3";
+            series69.ChartArea = "ChartArea1";
+            series69.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series69.Legend = "Legend1";
+            series69.Name = "Series4";
+            series70.ChartArea = "ChartArea1";
+            series70.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series70.Legend = "Legend1";
+            series70.Name = "Series5";
+            series71.ChartArea = "ChartArea1";
+            series71.Legend = "Legend1";
+            series71.Name = "Series6";
+            series72.ChartArea = "ChartArea1";
+            series72.Legend = "Legend1";
+            series72.Name = "Series7";
+            series73.ChartArea = "ChartArea1";
+            series73.Legend = "Legend1";
+            series73.Name = "Series8";
+            series74.ChartArea = "ChartArea1";
+            series74.Legend = "Legend1";
+            series74.Name = "Series9";
+            series75.ChartArea = "ChartArea1";
+            series75.Legend = "Legend1";
+            series75.Name = "Series10";
+            series76.ChartArea = "ChartArea1";
+            series76.Legend = "Legend1";
+            series76.Name = "Series11";
+            series77.ChartArea = "ChartArea1";
+            series77.Legend = "Legend1";
+            series77.Name = "Series12";
+            series78.ChartArea = "ChartArea1";
+            series78.Legend = "Legend1";
+            series78.Name = "Series13";
+            this.chart1.Series.Add(series66);
+            this.chart1.Series.Add(series67);
+            this.chart1.Series.Add(series68);
+            this.chart1.Series.Add(series69);
+            this.chart1.Series.Add(series70);
+            this.chart1.Series.Add(series71);
+            this.chart1.Series.Add(series72);
+            this.chart1.Series.Add(series73);
+            this.chart1.Series.Add(series74);
+            this.chart1.Series.Add(series75);
+            this.chart1.Series.Add(series76);
+            this.chart1.Series.Add(series77);
+            this.chart1.Series.Add(series78);
             this.chart1.Size = new System.Drawing.Size(1335, 287);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -781,41 +781,48 @@
             this.tabPage3.Text = "串口助手";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // lbxReceData
-            // 
-            this.lbxReceData.FormattingEnabled = true;
-            this.lbxReceData.ItemHeight = 15;
-            this.lbxReceData.Location = new System.Drawing.Point(3, 21);
-            this.lbxReceData.Name = "lbxReceData";
-            this.lbxReceData.Size = new System.Drawing.Size(1332, 106);
-            this.lbxReceData.TabIndex = 0;
-            // 
             // groupBox3
             // 
-            this.groupBox3.AutoSize = true;
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.lbxReceData);
             this.groupBox3.Location = new System.Drawing.Point(3, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1341, 151);
+            this.groupBox3.Size = new System.Drawing.Size(1341, 169);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "数据接收";
             // 
-            // tbxSendData
+            // lbxReceData
             // 
-            this.tbxSendData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbxSendData.Location = new System.Drawing.Point(3, 21);
-            this.tbxSendData.Multiline = true;
-            this.tbxSendData.Name = "tbxSendData";
-            this.tbxSendData.Size = new System.Drawing.Size(1043, 89);
-            this.tbxSendData.TabIndex = 0;
-            this.tbxSendData.Text = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
+            this.lbxReceData.BackColor = System.Drawing.SystemColors.Info;
+            this.lbxReceData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbxReceData.FormattingEnabled = true;
+            this.lbxReceData.ItemHeight = 15;
+            this.lbxReceData.Location = new System.Drawing.Point(3, 21);
+            this.lbxReceData.Name = "lbxReceData";
+            this.lbxReceData.Size = new System.Drawing.Size(1335, 145);
+            this.lbxReceData.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnSentData);
+            this.groupBox2.Controls.Add(this.btnClearData);
+            this.groupBox2.Controls.Add(this.rbnChar);
+            this.groupBox2.Controls.Add(this.rbnHex);
+            this.groupBox2.Location = new System.Drawing.Point(1055, 181);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(280, 106);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "显示类型";
             // 
             // btnSentData
             // 
             this.btnSentData.AllowDrop = true;
-            this.btnSentData.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSentData.Location = new System.Drawing.Point(154, 61);
+            this.btnSentData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSentData.Location = new System.Drawing.Point(154, 57);
             this.btnSentData.Name = "btnSentData";
             this.btnSentData.Size = new System.Drawing.Size(94, 43);
             this.btnSentData.TabIndex = 15;
@@ -826,40 +833,14 @@
             // btnClearData
             // 
             this.btnClearData.AllowDrop = true;
-            this.btnClearData.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClearData.Location = new System.Drawing.Point(28, 61);
+            this.btnClearData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClearData.Location = new System.Drawing.Point(22, 57);
             this.btnClearData.Name = "btnClearData";
             this.btnClearData.Size = new System.Drawing.Size(94, 43);
             this.btnClearData.TabIndex = 14;
             this.btnClearData.Text = "清空数据";
             this.btnClearData.UseVisualStyleBackColor = true;
             this.btnClearData.Click += new System.EventHandler(this.BtnClearData_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox4.AutoSize = true;
-            this.groupBox4.Controls.Add(this.tbxSendData);
-            this.groupBox4.Location = new System.Drawing.Point(0, 177);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1049, 113);
-            this.groupBox4.TabIndex = 13;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "数据发送";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.btnSentData);
-            this.groupBox2.Controls.Add(this.btnClearData);
-            this.groupBox2.Controls.Add(this.rbnChar);
-            this.groupBox2.Controls.Add(this.rbnHex);
-            this.groupBox2.Location = new System.Drawing.Point(1055, 177);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(280, 110);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "显示类型";
             // 
             // rbnChar
             // 
@@ -884,10 +865,26 @@
             this.rbnHex.Text = "HEX显示";
             this.rbnHex.UseVisualStyleBackColor = true;
             // 
-            // serialPort1
+            // groupBox4
             // 
-            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.SerialPort1_ErrorReceived);
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort1_DataReceived);
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.Controls.Add(this.tbxSendData);
+            this.groupBox4.Location = new System.Drawing.Point(0, 177);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1049, 113);
+            this.groupBox4.TabIndex = 13;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "数据发送";
+            // 
+            // tbxSendData
+            // 
+            this.tbxSendData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbxSendData.Location = new System.Drawing.Point(3, 21);
+            this.tbxSendData.Multiline = true;
+            this.tbxSendData.Name = "tbxSendData";
+            this.tbxSendData.Size = new System.Drawing.Size(1043, 89);
+            this.tbxSendData.TabIndex = 0;
+            this.tbxSendData.Text = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
             // 
             // Form1
             // 
@@ -904,6 +901,7 @@
             this.Name = "Form1";
             this.Text = "监控";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -917,12 +915,11 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -995,9 +992,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox tbxSendData;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rbnChar;
         public System.Windows.Forms.RadioButton rbnHex;
-        public System.IO.Ports.SerialPort serialPort1;
+        public System.Windows.Forms.RadioButton rbnChar;
     }
 }
 
