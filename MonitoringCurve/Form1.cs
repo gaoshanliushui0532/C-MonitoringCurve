@@ -364,8 +364,9 @@ namespace MonitoringCurve
                         DataLength = 15;
                     for (int i = 0; i < DataLength; i++)
                     {
-                        RecvDataText += ReceivedData[i].ToString("X2") + " ";  
+                        RecvDataText += ReceivedData[i].ToString("X2") + " ";
                         Form2.CommReceivedData[i] = ReceivedData[i];
+                        //this.dataGridView1.Name. = 
                     }
                     //判断校验和
                     /*
@@ -418,6 +419,11 @@ namespace MonitoringCurve
             groupBox2.Top = tabControl1.Height * 80 / 100 + 10;
 
             groupBox2.Width = tabControl1.Width * 15 / 100 + 10;
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

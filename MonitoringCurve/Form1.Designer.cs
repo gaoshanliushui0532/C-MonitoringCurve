@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series66 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series67 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series68 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series69 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series70 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series71 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series72 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series73 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series74 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series75 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series76 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series77 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series78 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -112,6 +112,27 @@
             this.rbnHex = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tbxSendData = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backHatchStyleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backGradientStyleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backSecondaryColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shadowColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shadowOffsetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -124,6 +145,8 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -445,6 +468,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 62);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -470,78 +494,78 @@
             this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             this.chart1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
             this.chart1.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            chartArea6.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
+            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.DataSource = this.bindingSource1;
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend6.ItemColumnSpacing = 20;
-            legend6.Name = "Legend1";
-            legend6.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend6);
+            legend1.ItemColumnSpacing = 20;
+            legend1.Name = "Legend1";
+            legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            series66.ChartArea = "ChartArea1";
-            series66.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series66.Legend = "Legend1";
-            series66.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series66.Name = "Series1";
-            series67.ChartArea = "ChartArea1";
-            series67.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series67.Legend = "Legend1";
-            series67.Name = "Series2";
-            series68.ChartArea = "ChartArea1";
-            series68.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series68.Legend = "Legend1";
-            series68.Name = "Series3";
-            series69.ChartArea = "ChartArea1";
-            series69.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series69.Legend = "Legend1";
-            series69.Name = "Series4";
-            series70.ChartArea = "ChartArea1";
-            series70.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series70.Legend = "Legend1";
-            series70.Name = "Series5";
-            series71.ChartArea = "ChartArea1";
-            series71.Legend = "Legend1";
-            series71.Name = "Series6";
-            series72.ChartArea = "ChartArea1";
-            series72.Legend = "Legend1";
-            series72.Name = "Series7";
-            series73.ChartArea = "ChartArea1";
-            series73.Legend = "Legend1";
-            series73.Name = "Series8";
-            series74.ChartArea = "ChartArea1";
-            series74.Legend = "Legend1";
-            series74.Name = "Series9";
-            series75.ChartArea = "ChartArea1";
-            series75.Legend = "Legend1";
-            series75.Name = "Series10";
-            series76.ChartArea = "ChartArea1";
-            series76.Legend = "Legend1";
-            series76.Name = "Series11";
-            series77.ChartArea = "ChartArea1";
-            series77.Legend = "Legend1";
-            series77.Name = "Series12";
-            series78.ChartArea = "ChartArea1";
-            series78.Legend = "Legend1";
-            series78.Name = "Series13";
-            this.chart1.Series.Add(series66);
-            this.chart1.Series.Add(series67);
-            this.chart1.Series.Add(series68);
-            this.chart1.Series.Add(series69);
-            this.chart1.Series.Add(series70);
-            this.chart1.Series.Add(series71);
-            this.chart1.Series.Add(series72);
-            this.chart1.Series.Add(series73);
-            this.chart1.Series.Add(series74);
-            this.chart1.Series.Add(series75);
-            this.chart1.Series.Add(series76);
-            this.chart1.Series.Add(series77);
-            this.chart1.Series.Add(series78);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series1.Name = "Series1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series3";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Series4";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Series5";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series6";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series7";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series8";
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series9";
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Series10";
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series11";
+            series12.ChartArea = "ChartArea1";
+            series12.Legend = "Legend1";
+            series12.Name = "Series12";
+            series13.ChartArea = "ChartArea1";
+            series13.Legend = "Legend1";
+            series13.Name = "Series13";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
+            this.chart1.Series.Add(series9);
+            this.chart1.Series.Add(series10);
+            this.chart1.Series.Add(series11);
+            this.chart1.Series.Add(series12);
+            this.chart1.Series.Add(series13);
             this.chart1.Size = new System.Drawing.Size(1335, 287);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -886,6 +910,190 @@
             this.tbxSendData.TabIndex = 0;
             this.tbxSendData.Text = "FF FF 0A 00 00 00 00 00 00 01 6D 00 78";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1341, 293);
+            this.tabPage4.TabIndex = 5;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.nameDataGridViewTextBoxColumn,
+            this.fontDataGridViewTextBoxColumn,
+            this.backHatchStyleDataGridViewTextBoxColumn,
+            this.backGradientStyleDataGridViewTextBoxColumn,
+            this.backSecondaryColorDataGridViewTextBoxColumn,
+            this.shadowColorDataGridViewTextBoxColumn,
+            this.shadowOffsetDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.chart1.Series;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(1341, 293);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Column4";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Column5";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Column6";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Column7";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Column8";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Column9";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Column10";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Column11";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Column12";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fontDataGridViewTextBoxColumn
+            // 
+            this.fontDataGridViewTextBoxColumn.DataPropertyName = "Font";
+            this.fontDataGridViewTextBoxColumn.HeaderText = "Font";
+            this.fontDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fontDataGridViewTextBoxColumn.Name = "fontDataGridViewTextBoxColumn";
+            this.fontDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // backHatchStyleDataGridViewTextBoxColumn
+            // 
+            this.backHatchStyleDataGridViewTextBoxColumn.DataPropertyName = "BackHatchStyle";
+            this.backHatchStyleDataGridViewTextBoxColumn.HeaderText = "BackHatchStyle";
+            this.backHatchStyleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.backHatchStyleDataGridViewTextBoxColumn.Name = "backHatchStyleDataGridViewTextBoxColumn";
+            this.backHatchStyleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // backGradientStyleDataGridViewTextBoxColumn
+            // 
+            this.backGradientStyleDataGridViewTextBoxColumn.DataPropertyName = "BackGradientStyle";
+            this.backGradientStyleDataGridViewTextBoxColumn.HeaderText = "BackGradientStyle";
+            this.backGradientStyleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.backGradientStyleDataGridViewTextBoxColumn.Name = "backGradientStyleDataGridViewTextBoxColumn";
+            this.backGradientStyleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // backSecondaryColorDataGridViewTextBoxColumn
+            // 
+            this.backSecondaryColorDataGridViewTextBoxColumn.DataPropertyName = "BackSecondaryColor";
+            this.backSecondaryColorDataGridViewTextBoxColumn.HeaderText = "BackSecondaryColor";
+            this.backSecondaryColorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.backSecondaryColorDataGridViewTextBoxColumn.Name = "backSecondaryColorDataGridViewTextBoxColumn";
+            this.backSecondaryColorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // shadowColorDataGridViewTextBoxColumn
+            // 
+            this.shadowColorDataGridViewTextBoxColumn.DataPropertyName = "ShadowColor";
+            this.shadowColorDataGridViewTextBoxColumn.HeaderText = "ShadowColor";
+            this.shadowColorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.shadowColorDataGridViewTextBoxColumn.Name = "shadowColorDataGridViewTextBoxColumn";
+            this.shadowColorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // shadowOffsetDataGridViewTextBoxColumn
+            // 
+            this.shadowOffsetDataGridViewTextBoxColumn.DataPropertyName = "ShadowOffset";
+            this.shadowOffsetDataGridViewTextBoxColumn.HeaderText = "ShadowOffset";
+            this.shadowOffsetDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.shadowOffsetDataGridViewTextBoxColumn.Name = "shadowOffsetDataGridViewTextBoxColumn";
+            this.shadowOffsetDataGridViewTextBoxColumn.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -920,6 +1128,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -994,6 +1204,27 @@
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.RadioButton rbnHex;
         public System.Windows.Forms.RadioButton rbnChar;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fontDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn backHatchStyleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn backGradientStyleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn backSecondaryColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shadowColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shadowOffsetDataGridViewTextBoxColumn;
     }
 }
 
